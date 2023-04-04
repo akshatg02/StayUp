@@ -79,7 +79,7 @@
     <div id="Register">
         <div class="container">
             <div class="form-container">
-                <form class="registration-form">
+                <form class="registration-form" onsubmit="submit_registration_form(event)" action="process.php">
                     <h2 align="center">REGISTRATION</h2>
                     <div class="form-group">
                         <label for="name">Name:</label>
@@ -113,6 +113,12 @@
         </div>
     </div>
     <p align="center">&copy; All rights reserved to Akshat and Team </p>
+    <script>
+        function submit_registration_form(event) {
+            event.preventDefault();
+            event.target.reset();
+        }
+    </script>
 </body>
 
 </html>

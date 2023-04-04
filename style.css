@@ -150,14 +150,14 @@ p {
 }
 
 #Login {
-    background-image: url('./img/Login.png');
+    background-image: url('./img/Login.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
 }
 
 #Register {
-    background-image: url('./img/Login.png');
+    background-image: url('./img/Login.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -166,6 +166,9 @@ p {
 #showcase {
     background-image: url('./img/showcase.jpg');
     height: 1050px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
 }
 
 #showcase .showcase-content {
@@ -298,21 +301,21 @@ p {
 }
 
 #contact-form label {
-    color: #fff;
+    color: #000;
     display: block;
     margin-bottom: 5px;
 }
 
 #contact-form {
-    background: url('./img/contact.jpg') no-repeat center center/cover;
+    background: url('./img/contact1.jpg') no-repeat center center/cover;
 }
 
 #contact-form input,
 #contact-form textarea {
-    color: #fff;
+    color: #000;
     width: 100%;
     padding: 10px;
-    border: 1px #ddd solid;
+    border: 1px #000 solid;
     background-color: transparent;
 }
 
