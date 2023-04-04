@@ -150,21 +150,21 @@
  }
  
  #Login {
-     background-image: url('../img/Login.png');
+     background-image: url('./img/Login.png');
      background-repeat: no-repeat;
      background-attachment: fixed;
      background-size: 100% 100%;
  }
  
  #Register {
-     background-image: url('../img/Login.png');
+     background-image: url('./img/Login.png');
      background-repeat: no-repeat;
      background-attachment: fixed;
      background-size: 100% 100%;
  }
  
  #showcase {
-     background-image: url('../img/showcase.jpg');
+     background-image: url('./img/showcase.jpg');
      height: 1050px;
  }
  
@@ -191,7 +191,7 @@
  #home-info .info-img {
      float: left;
      width: 50%;
-     background: url('../img/photo-1.jpg') no-repeat;
+     background: url('./img/photo-1.jpg') no-repeat;
      min-height: 100%;
  }
  
@@ -241,13 +241,13 @@
  
  #testimonials {
      height: 600px;
-     background: url('../img/test-bg.jpg') no-repeat center center/cover;
+     background: url('./img/test-bg.jpg') no-repeat center center/cover;
      padding-top: 100px;
  }
  
  #Amenities {
      /* height: 600px; */
-     background: url('../img/test-bg2.jpg') no-repeat center center/cover;
+     background: url('./img/test-bg2.jpg') no-repeat center center/cover;
      /* padding-top: 100px; */
  }
  
@@ -304,7 +304,7 @@
  }
  
  #contact-form {
-     background: url('../img/contact.jpg') no-repeat center center/cover;
+     background: url('./img/contact.jpg') no-repeat center center/cover;
  }
  
  #contact-form input,
