@@ -101,15 +101,7 @@ p {
     font-size: 40px;
 }
 
-.py-1 {
-    padding: 10px 0;
-}
-
-.py-2 {
-    padding: 20px 0;
-}
-
-.py-3 {
+.py {
     padding: 30px 0;
 }
 
