@@ -52,7 +52,7 @@
         input[type="text"],
         input[type="email"],
         input[type="password"],
-        input[type="tel"] {
+        input[type="number"] {
             width: 100%;
             padding: 10px;
             border-radius: 5px;
@@ -78,7 +78,7 @@
     <div id="Login">
         <div class="container">
             <div class="form-container">
-                <form class="login-form" onsubmit="submit_login_form(event)" action="process.php">
+                <form class="login-form" id="loginForm">
                     <h2 align="center">LOGIN</h2>
                     <div class="form-group">
                         <label for="login_email">Email or username:</label>
@@ -99,10 +99,25 @@
     </div>
     <p align="center">&copy; All rights reserved to Akshat and Team </p>
     <script>
-        function submit_login_form(event) {
-            event.preventDefault();
-            event.target.reset();
-        }
+        const loginForm = document.getElementById("loginForm");
+        loginForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // prevent form submission
+            const email = loginForm.elements.login_email.value;
+            const password = loginForm.elements.login_password.value;
+            const storedUser = localStorage.getItem(email); // retrieve stored user from local storage
+
+            if (storedUser !== null) {
+                const user = JSON.parse(storedUser);
+                if (password === user.password) {
+                    alert(`Welcome back, ${user.name}!`);
+                    loginForm.reset(); // reset form fields
+                } else {
+                    alert("Invalid email or password");
+                }
+            } else {
+                alert("Invalid email or password");
+            }
+        });
     </script>
 </body>
 

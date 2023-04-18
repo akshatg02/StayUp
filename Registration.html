@@ -52,7 +52,7 @@
         input[type="text"],
         input[type="email"],
         input[type="password"],
-        input[type="tel"] {
+        input[type="number"] {
             width: 100%;
             padding: 10px;
             border-radius: 5px;
@@ -79,7 +79,7 @@
     <div id="Register">
         <div class="container">
             <div class="form-container">
-                <form class="registration-form" onsubmit="submit_registration_form(event)" action="process.php">
+                <form class="registration-form" id="registrationForm">
                     <h2 align="center">REGISTRATION</h2>
                     <div class="form-group">
                         <label for="name">Name:</label>
@@ -99,7 +99,7 @@
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone:</label>
-                        <input type="tel" id="phone" name="phone" required>
+                        <input type="number" id="phone" name="phone" required>
                     </div>
                     <div class="form-group">
                         <button type="submit">Register</button>
@@ -114,10 +114,31 @@
     </div>
     <p align="center">&copy; All rights reserved to Akshat and Team </p>
     <script>
-        function submit_registration_form(event) {
-            event.preventDefault();
-            event.target.reset();
-        }
+        // Registration form
+        const registrationForm = document.getElementById("registrationForm");
+        registrationForm.addEventListener("submit", function(event) {
+            event.preventDefault(); // prevent form submission
+            const name = registrationForm.elements.name.value;
+            const email = registrationForm.elements.email.value;
+            const password = registrationForm.elements.password.value;
+            const confirm_password = registrationForm.elements.confirm_password.value;
+            const phone = registrationForm.elements.phone.value;
+
+            // Check if passwords match
+            if (password !== confirm_password) {
+                alert("Passwords do not match");
+                return;
+            }
+
+            localStorage.setItem(email, JSON.stringify({
+                name: name,
+                password: password,
+                phone: phone
+            })); // store user credentials in local storage
+
+            alert("Registration successful");
+            registrationForm.reset(); // reset form fields
+        });
     </script>
 </body>
 
