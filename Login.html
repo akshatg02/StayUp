@@ -110,6 +110,7 @@
                 const user = JSON.parse(storedUser);
                 if (password === user.password) {
                     alert(`Welcome back, ${user.name}!`);
+                    window.location.replace("index.html");
                     loginForm.reset(); // reset form fields
                 } else {
                     alert("Invalid email or password");
