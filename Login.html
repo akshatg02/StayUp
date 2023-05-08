@@ -75,50 +75,45 @@
 </head>
 
 <body>
+
     <div id="Login">
         <div class="container">
             <div class="form-container">
                 <form class="login-form" id="loginForm">
                     <h2 align="center">LOGIN</h2>
-                    <div class="form-group">
-                        <label for="login_email">Email or username:</label>
-                        <input type="email" id="login_email" name="login_email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="login_password">Password:</label>
-                        <input type="password" id="login_password" name="login_password" required>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit">Login</button>
-                    </div>
-                    <span align="center"><i><b> New user? </b></i></span>
-                    <a href="Registration.html"> Sign Up </a>
-                </form>
+                    <div class="form-group"><label for="login_email">Email or username:</label><input type="email" id="login_email" name="login_email" required></div>
+                    <div class="form-group"><label for="login_password">Password:</label><input type="password" id="login_password" name="login_password" required></div>
+                    <div class="form-group"><button type="submit">Login</button></div><span align="center"><i><b>New user? </b></i></span><a href="Registration.html">Sign Up </a></form>
             </div>
         </div>
     </div>
     <p align="center">&copy; All rights reserved to Akshat and Team </p>
     <script>
+        alert("You need to login First!");
         const loginForm = document.getElementById("loginForm");
         loginForm.addEventListener("submit", function(event) {
-            event.preventDefault(); // prevent form submission
-            const email = loginForm.elements.login_email.value;
-            const password = loginForm.elements.login_password.value;
-            const storedUser = localStorage.getItem(email); // retrieve stored user from local storage
-
-            if (storedUser !== null) {
-                const user = JSON.parse(storedUser);
-                if (password === user.password) {
-                    alert(`Welcome back, ${user.name}!`);
-                    window.location.replace("index.html");
-                    loginForm.reset(); // reset form fields
+                event.preventDefault(); // prevent form submission
+                const email = loginForm.elements.login_email.value;
+                const password = loginForm.elements.login_password.value;
+                const storedUser = localStorage.getItem(email); // retrieve stored user from local storage
+                if (storedUser !== null) {
+                    const user = JSON.parse(storedUser);
+                    if (password === user.password) {
+                        alert(`Welcome back, $ {
+                user.name
+            }
+            !`);
+                        window.location.replace("home.html");
+                        loginForm.reset(); // reset form fields
+                    } else {
+                        alert("Invalid email or password");
+                    }
                 } else {
                     alert("Invalid email or password");
                 }
-            } else {
-                alert("Invalid email or password");
             }
-        });
+
+        );
     </script>
 </body>
 
