@@ -1,9 +1,65 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="Dobro dosli u najbolji kafic na svetu"><meta name="keywords" content="Kafic"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous"><link rel="stylesheet" href="./style.css"><title>StayUp - Contact Us</title></head><script src="//code.tidio.co/exdbsckp0yvnd5h84gvhpr2vysg6aqts.js" async></script><body><header><nav id="navbar"><div class="container"><a href="home.html"><img src="img/logo.png" alt="StayUpLogo" style="width:70px;height:70px;"></a><ul><li><a href="home.html">Home</a></li><li><a href="Rooms.html">Rooms</a></li><li><a href="about.html">About Us</a></li><li><a class="current" href="contact.html">Contact Us</a></li></ul></div></nav></header><section id="contact-form" class="py"><div class="container"><h1 class="l-heading"><span class="text-primary">Contact Us</span></h1><h3 style="color:black;"><i>Please fill the given form along with reason so that we can help you out!</i></h3><form onsubmit="submit_contact_us(event)" action="process.php"><div class="form-group"><label for="name"><b>Name</b></label><input type="text" name="Name" id="Name"></div><div class="form-group"><label for="email"><b>Email</b></label><input type="email" name="email" id="email"></div><div class="form-group"><label for="message"><b>Message</b></label><textarea type="email" name="message" id="message"></textarea></div><button type="submit" class="btn">Submit</button></form></div></section><section id="contact-info" class="bg-dark"><div class="container"><div class="box "><i class="fas fa-hotel fa-3x"></i><h3>Location</h3><p>Bareilly,
-Nangal,
-Rohtak and Meerut</p></div><div class="box"><i class="fas fa-phone fa-3x"></i><h3>Number </h3><p>+91 9760394381</p></div><div class="box "><i class="fas fa-envelope fa-3x"></i><h3>Email</h3><p>stayup@hotels.in</p></div></div></section><p align="center">&copy;
-All rights reserved to Akshat and Team </p><script>function submit_contact_us(event) {
-    event.preventDefault();
-    event.target.reset();
-}
+<!DOCTYPE html>
+<html lang="en">
 
-</script></body></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Dobro dosli u najbolji kafic na svetu">
+    <meta name="keywords" content="Kafic">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <title>StayUp - Contact Us</title>
+</head>
+<script src="//code.tidio.co/exdbsckp0yvnd5h84gvhpr2vysg6aqts.js" async></script>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="container">
+                <a href="home.html"><img src="img/logo.png" alt="StayUpLogo" style="width:70px;height:70px;"></a>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="Rooms.html">Rooms</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a class="current" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section id="contact-form" class="py">
+        <div class="container">
+            <h1 class="l-heading"><span class="text-primary">Contact Us</span></h1>
+            <h3 style="color:black;"><i>Please fill the given form along with reason so that we can help you out!</i></h3>
+            <form onsubmit="submit_contact_us(event)" action="process.php">
+                <div class="form-group"><label for="name"><b>Name</b></label><input type="text" name="Name" id="Name"></div>
+                <div class="form-group"><label for="email"><b>Email</b></label><input type="email" name="email" id="email"></div>
+                <div class="form-group"><label for="message"><b>Message</b></label><textarea type="email" name="message" id="message"></textarea></div><button type="submit" class="btn">Submit</button></form>
+        </div>
+    </section>
+    <section id="contact-info" class="bg-dark">
+        <div class="container">
+            <div class="box "><i class="fas fa-hotel fa-3x"></i>
+                <h3>Location</h3>
+                <p>Bareilly, Nangal, Rohtak and Meerut</p>
+            </div>
+            <div class="box"><i class="fas fa-phone fa-3x"></i>
+                <h3>Number </h3>
+                <p>+91 9760394381</p>
+            </div>
+            <div class="box "><i class="fas fa-envelope fa-3x"></i>
+                <h3>Email</h3>
+                <p>stayup@hotels.in</p>
+            </div>
+        </div>
+    </section>
+    <p align="center">&copy; All rights reserved to Akshat and Team </p>
+    <script>
+        function submit_contact_us(event) {
+            event.preventDefault();
+            event.target.reset();
+        }
+    </script>
+</body>
+
+</html>

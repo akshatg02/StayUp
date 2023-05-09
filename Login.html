@@ -99,10 +99,7 @@
                 if (storedUser !== null) {
                     const user = JSON.parse(storedUser);
                     if (password === user.password) {
-                        alert(`Welcome back, $ {
-                user.name
-            }
-            !`);
+                        alert(`Welcome back, ${user.name}!`);
                         window.location.replace("home.html");
                         loginForm.reset(); // reset form fields
                     } else {
