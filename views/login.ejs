@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Login</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 400px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid black;
+        }
+        
+        form {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="Login">
+        <div class="container">
+            <div class="form-container">
+                <form class="login-form" id="loginForm">
+                    <h2 align="center">LOGIN</h2>
+                    <div class="form-group"><label for="login_email">Email or username:</label><input type="email" id="login_email" name="login_email" required></div>
+                    <div class="form-group"><label for="login_password">Password:</label><input type="password" id="login_password" name="login_password" re1quired></div>
+                    <div class="form-group"><button type="submit">Login</button></div><span align="center"><i><b>New user? </b></i></span><a href="/registration">Sign Up </a></form>
+            </div>
+        </div>
+    </div>
+    <p align="center">&copy; All rights reserved to Akshat and Team </p>
+    <script>
+        const loginForm = document.getElementById("loginForm");
+        loginForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                const email = loginForm.elements.login_email.value;
+                const password = loginForm.elements.login_password.value;
+                const storedUser = localStorage.getItem(email);
+                if (storedUser !== null) {
+                    const user = JSON.parse(storedUser);
+                    if (password === user.password) {
+                        alert(`Welcome back, ${user.name}!`);
+                        window.location.replace("/home");
+                        loginForm.reset();
+                    } else {
+                        alert("Invalid email or password");
+                    }
+                } else {
+                    alert("Invalid email or password");
+                }
+            }
+
+        );
+    </script>
+</body>
+
+</html>

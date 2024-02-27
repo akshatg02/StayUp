@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Hotel Rooms</title>
+    <style>
+        .container2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            padding-top: 200px;
+            max-width: 2000px;
+            margin: 0 auto;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        #roombg {
+            background-image: url('img/Rooms/roombg2.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+        
+        .room {
+            width: 700px;
+            margin: 20px;
+            border: 2.5px solid #000;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .room img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .room-info {
+            padding: 10px;
+        }
+        
+        .room-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .room-price {
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-shadow: 2px solid black;
+        }
+        
+        .room-description {
+            font-size: 17px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        
+        .book-now {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        
+        .book-now:hover {
+            color: #000;
+            background-color: #ceb05e;
+        }
+    </style>
+</head>
+<script src="//code.tidio.co/exdbsckp0yvnd5h84gvhpr2vysg6aqts.js" async></script>
+
+<body>
+    <header id="fixedHeader">
+        <nav id="navbar">
+            <div class="container">
+                <a href="/home"><img src="img/logo.png" alt="StayUpLogo" style="width:70px;height:70px;"></a>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a class="current" href="/rooms">Rooms</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div id="roombg">
+        <div class="container2" id="roomContainer">
+            <!-- Room cards will be here -->
+        </div>
+        <p align="center" style="padding-top: 240px;">&copy; All rights reserved to Akshat and Team </p>
+    </div>
+
+    <script>
+        const rooms = [{
+                title: 'Standard Single Room',
+                price: '$50/night',
+                description: ['Cozy', 'Solo Travelers'],
+                image: 'img/Rooms/standard_single.jpg',
+                link: '/contact'
+            }, {
+                title: 'Accessible Room',
+                price: '$70/night',
+                description: ['Wheelchair Accessible', 'For Guests with Mobility Needs'],
+                image: 'img/Rooms/accessible.jpg',
+                link: '/contact'
+            }, {
+                title: 'Double Room',
+                price: '$80/night',
+                description: ['Spacious', 'City View'],
+                image: 'img/Rooms/double.jpg',
+                link: '/contact'
+            }, {
+                title: 'Pet-Friendly Suite',
+                price: '$90/night',
+                description: ['Welcomes Pets', 'Comfortable'],
+                image: 'img/Rooms/pet.jpg',
+                link: '/contact'
+            }, {
+                title: 'Family Suite',
+                price: '$120/night',
+                description: ['Generous Space', 'Separate Areas'],
+                image: 'img/Rooms/family.jpg',
+                link: '/contact'
+            }, {
+                title: 'Luxury King Room',
+                price: '$150/night',
+                description: ['Elegant', 'Luxurious Amenities'],
+                image: 'img/Rooms/luxury_king.jpg',
+                link: '/contact'
+            }, {
+                title: 'Executive Business Room',
+                price: '$180/night',
+                description: ['Ideal for Business Travelers', 'Modern Facilities'],
+                image: 'img/Rooms/executive_business.jpg',
+                link: '/contact'
+            }, {
+                title: 'Adjoining Rooms',
+                price: '$200/night',
+                description: ['Connected Rooms', 'Ideal for Groups'],
+                image: 'img/Rooms/adjoining.jpg',
+                link: '/contact'
+            }, {
+                title: 'Deluxe Oceanfront Suite',
+                price: '$250/night',
+                description: ['Exclusive', 'Ocean View'],
+                image: 'img/Rooms/oceanfront.jpg',
+                link: '/contact'
+            }, {
+                title: 'Honeymoon Suite',
+                price: '$300/night',
+                description: ['Romantic', 'Special Amenities'],
+                image: 'img/Rooms/Honeymoon.jpg',
+                link: '/contact'
+            }, {
+                title: 'Penthouse Loft',
+                price: '$400/night',
+                description: ['Luxurious Loft', 'Topmost Level'],
+                image: 'img/Rooms/loft.jpg',
+                link: '/contact'
+            }, {
+                title: 'Presidential Suite',
+                price: '$700/night',
+                description: ['Extravagant', 'Opulent Furnishings'],
+                image: 'img/Rooms/presidential.jpg',
+                link: '/contact'
+            }
+
+        ];
+
+        // Function to generate HTML for each room
+        function generateRoomCards() {
+            const roomContainer = document.getElementById('roomContainer');
+
+            rooms.forEach(room => {
+                const roomElement = document.createElement('div');
+                roomElement.classList.add('room');
+
+                const roomImage = document.createElement('img');
+                roomImage.src = room.image;
+                roomImage.alt = room.title;
+
+                const roomInfo = document.createElement('div');
+                roomInfo.classList.add('room-info');
+
+                const title = document.createElement('div');
+                title.classList.add('room-title');
+                title.textContent = room.title;
+
+                const price = document.createElement('div');
+                price.classList.add('room-price');
+                price.textContent = room.price;
+
+                const description = document.createElement('div');
+                description.classList.add('room-description');
+                room.description.forEach(desc => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${desc}`;
+                    description.appendChild(listItem);
+                });
+
+                const bookNow = document.createElement('div');
+                bookNow.classList.add('book-now');
+                bookNow.textContent = 'Book Now';
+
+
+                bookNow.onmouseenter = function() {
+                    bookNow.style.transform = 'scale(1.1)';
+                    bookNow.style.transition = 'transform 0.3s ease';
+                };
+
+                bookNow.onmouseleave = function() {
+                    bookNow.style.transform = 'scale(1)';
+                    bookNow.style.transition = 'transform 0.3s ease';
+                };
+
+                bookNow.onclick = function() {
+                    window.location.href = room.link;
+                };
+
+                roomInfo.appendChild(title);
+                roomInfo.appendChild(price);
+                roomInfo.appendChild(description);
+                roomInfo.appendChild(bookNow);
+
+                roomElement.appendChild(roomImage);
+                roomElement.appendChild(roomInfo);
+
+                roomContainer.appendChild(roomElement);
+            });
+        }
+
+
+        window.onload = generateRoomCards;
+    </script>
+</body>
+
+</html>
