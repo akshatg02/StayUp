@@ -7,24 +7,12 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// let loggedIn = false;
-
-// const checkLoggedIn = (req, res, next) => {
-//     if (loggedIn) {
-//         next();
-//     } else {
-//         res.redirect('/login');
-//     }
-// };
 
 app.use(express.static('public'));
 
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'views', 'index.html'));
-// });
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render(path.join(__dirname, 'index'));
 });
 
 app.get('/home', (req, res) => {
