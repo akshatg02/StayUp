@@ -35,18 +35,8 @@ app.get('/registration', (req, res) => {
     res.render('registration');
 });
 
-// app.post('/login', (req, res) => {
-//     const { username, password } = req.body;
 
-//     if (username === 'admin@123' && password === 'admin') {
-//         loggedIn = true;
-//         res.redirect('/rooms');
-//     } else {
-//         res.redirect('/login');
-//     }
-// });
-
-app.get('/rooms', /*checkLoggedIn,*/ (req, res) => {
+app.get('/rooms', (req, res) => {
     res.render('rooms');
 });
 
