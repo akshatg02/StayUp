@@ -52,7 +52,7 @@
         input[type="text"],
         input[type="email"],
         input[type="password"],
-        input[type="number"] {
+        input[type="tel"] {
             width: 100%;
             padding: 10px;
             border-radius: 5px;
@@ -79,27 +79,28 @@
     <div id="Register">
         <div class="container">
             <div class="form-container">
-                <form class="registration-form" id="registrationForm">
+                <form class="registration-form" id="registrationForm" action="/registration" method="post">
                     <h2 align="center">REGISTRATION</h2>
                     <div class="form-group">
                         <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" placeholder="name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" placeholder="email" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="password" id="password" name="password" placeholder="password" required>
                     </div>
                     <div class="form-group">
                         <label for="confirm_password">Confirm Password:</label>
-                        <input type="password" id="confirm_password" name="confirm_password" required>
+                        <input type="password" id="confirm_password" name="confirm_password" placeholder="confirm password" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone:</label>
-                        <input type="number" id="phone" name="phone" required>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="9874563210" required>
+                        <small>Enter a 10-digit phone number</small>
                     </div>
                     <div class="form-group">
                         <button type="submit">Register</button>
@@ -112,35 +113,61 @@
             </div>
         </div>
     </div>
-    <p align="center">&copy; All rights reserved to Akshat</p>
+    <p align="center">&copy; All rights reserved to Akshat and Team</p>
     <script>
-        // Registration form
         const registrationForm = document.getElementById("registrationForm");
         registrationForm.addEventListener("submit", function(event) {
-            event.preventDefault(); // prevent form submission
-            const name = registrationForm.elements.name.value;
-            const email = registrationForm.elements.email.value;
-            const password = registrationForm.elements.password.value;
-            const confirm_password = registrationForm.elements.confirm_password.value;
-            const phone = registrationForm.elements.phone.value;
+            event.preventDefault();
 
-            // Check if passwords match
-            if (password !== confirm_password) {
-                alert("Passwords do not match");
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const phoneNumber = document.getElementById("phone").value;
+
+            if (!email || !password) {
+                alert("Email and/or Password cannot be left Empty");
+                return;
+            }
+            if (phoneNumber.length !== 10) {
+                alert("Phone number must be exactly 10 digits long");
                 return;
             }
 
-            localStorage.setItem(email, JSON.stringify({
-                name: name,
-                password: password,
-                phone: phone
-            })); // store user credentials in local storage
+            const formData = new FormData(registrationForm);
+            const formObject = {};
+            formData.forEach(function(value, key) {
+                formObject[key] = value;
+            });
+            console.log(formObject);
 
-            alert("Registration successful");
-            registrationForm.reset(); // reset form fields
-            window.location.replace("/login");
+            fetch("/registration", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formObject)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        localStorage.setItem("registeredEmail", email);
+                        localStorage.setItem("registeredPassword", password);
+                        alert("Registration Successful")
+                        registrationForm.reset();
+                        window.location.replace("/login");
+                    } else {
+                        return response.text().then(errorMessage => {
+                            alert(errorMessage);
+                        });
+                    }
+
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    return;
+                });
         });
     </script>
 </body>
+
+</html>
 
 </html>

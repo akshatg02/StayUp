@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Dobro dosli u najbolji kafic na svetu">
-    <meta name="keywords" content="Kafic">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>StayUp Hotels</title>
@@ -67,7 +65,6 @@
         }
     }
 </style>
-<script src="//code.tidio.co/exdbsckp0yvnd5h84gvhpr2vysg6aqts.js" async></script>
 <script>
     function transform(element) {
         element.style = 'transform: scale(1.1); transition: transform 0.3s ease;';
@@ -75,6 +72,28 @@
 
     function resetTransform(element) {
         element.style.cssText = 'transform: scale(1); transition: transform 0.3s ease;';
+    }
+
+    function logout() {
+        fetch('/logout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    logout: true
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = '/';
+                } else {
+                    console.error('Failed to logout');
+                }
+            })
+            .catch(error => {
+                console.error('Error during logout:', error);
+            });
     }
 </script>
 
@@ -99,11 +118,11 @@
                         top-notch amenities, your stay with us is guaranteed to be a memorable one.</p>
                     <a class="btn" href="/rooms" onmouseenter="transform(this)" onmouseleave="resetTransform(this)">Explore the Rooms</a>
                     <p>OR</p>
-                    <a class="btn" href="/" onmouseenter="transform(this)" onmouseleave="resetTransform(this)">Log Out</a>
+                    <a class="btn" href="/" onclick="logout()" onmouseenter="transform(this)" onmouseleave="resetTransform(this)">Log Out</a>
                 </div>
             </div>
         </div>
-        <p style="color:white;text-align:center;">&copy; All rights reserved to Akshat</p>
+        <p style="color:white;text-align:center;">&copy; All rights reserved to Akshat and Team</p>
 
     </header>
 </body>
