@@ -1,14 +1,14 @@
 
-# Stay Up
+# StayUp 🏠
 
-A simple Hotel booking website with Backend Functionality
+A simple Hotel booking website with Backend Functionality.
 
 
-## Authors
+## Authors 🧔‍♂️
 
 - [@akshat](https://www.github.com/akshatg02/)
 
-## Deployment
+## Deployment 🚀
 
 To deploy this project run
 
@@ -17,7 +17,7 @@ To deploy this project run
 ```
 
 
-## Demo
+## Demo ⛳
 
 [@StayUp](https://stayup.onrender.com)
 ## Environment Variables
@@ -37,7 +37,7 @@ To run this project, you will need to add the following environment variables to
 `PORT`
 
 `SESSION_SECRET`
-## Features
+## Features ⚙️
 
 - Login/Signup
 - Autofill login credentials
@@ -47,7 +47,7 @@ To run this project, you will need to add the following environment variables to
 - Working Contact-Us Page
 - Password Encryption
 
-## 🚀 About Me
+## About Me 🧔‍♂️
 I'm a Full stack Developer.
 
 ## 🔗 Links
@@ -55,10 +55,10 @@ I'm a Full stack Developer.
 
 
 ## 🛠 Skills
-HTML, CSS, JavaScript, ReactJs, MongoDB, MySQL, NodeJs, ExpressJs, EJS, etc.
+HTML, CSS, JavaScript, MySQL, NodeJs, ExpressJs, and EJS.
 
 
-## Tech Stack
+## Tech Stack 🔥
 
 **Client:** HTML, CSS, JavaScript
 
@@ -67,14 +67,14 @@ HTML, CSS, JavaScript, ReactJs, MongoDB, MySQL, NodeJs, ExpressJs, EJS, etc.
 **Database:** SQL
 
 
-## Roadmap
+## Roadmap 🛣️
 
 - Admin Panel
 - Add to Cart
 - Some more integrations
 
 
-## Screenshots
+## Screenshots 📷
 
 ![alt text](./public/readmeImg/1.jpg)
 ![alt text](./public/readmeImg/2.jpg)
